@@ -67,14 +67,11 @@ for item in input_list:
 if sublist:
 	input_mazes.append(sublist)
 
-for i in input_mazes:  # add every maze from the input_file in the list of mazes
+for i in input_mazes:  # add every maze from the input_file in the list of Ímazes
 	mazes.append(i)
 
 # print the solutions
 solutions = maze_solver(mazes)
 for i, solution in enumerate(solutions, 1):
-		if i == len(solutions)-1:
-			print(f"{chr(ord('a') + i - 1).upper()}\n{' '.join(solution[0:])}")
-		else:
 			print(f"{chr(ord('a') + i - 1).upper()}\n{' '.join(solution[0:])}\n")
 
