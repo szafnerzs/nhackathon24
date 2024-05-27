@@ -1,6 +1,5 @@
 from collections import deque
 
-
 def maze_solver(mazes):
 	def navigation(start, maze):
 		queue = deque()  # specific type of storage
@@ -60,7 +59,7 @@ for item in input_list:
 	if len(item) == 1:  # if the item is a seperated letter A B C
 		if sublist:  # if the sublist is not empty, append it to the input_mazes
 			input_mazes.append(sublist)
-			sublist = []  # reset sublist for the next iteration
+			sublist = []  # reset sublist for the next loop
 	else:
 		sublist.append(item)  # add non-letter items to the sublist
 
@@ -74,6 +73,8 @@ for i in input_mazes:  # add every maze from the input_file in the list of mazes
 # print the solutions
 solutions = maze_solver(mazes)
 for i, solution in enumerate(solutions, 1):
-		print(f"{chr(ord('a') + i - 1).upper()}\n{' '.join(solution[0:])}\n")
-
+		if i == len(solutions)-1:
+			print(f"{chr(ord('a') + i - 1).upper()}\n{' '.join(solution[0:])}")
+		else:
+			print(f"{chr(ord('a') + i - 1).upper()}\n{' '.join(solution[0:])}\n")
 
