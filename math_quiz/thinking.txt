@@ -15,6 +15,12 @@
 
 	Válasz: A vonat hossza 100 méter.
 
+2. feladat:
+    két különböző számot megszorozva kapunk egy bizonyos eredményt. Ezt az eredményt minden esetben a kisebb szám
+    növelésével lehet mégnagyobbá tenni.
+    A 2db 2cm-es kockát a 8 cm-re rakjuk, majd a 6 cm-es kockát a 8 és 4 centis oldalához rakjuk amivel kapunk egy
+    4x8x10cm-eset = 320^3
+
 3. feladat:
 	Juli x km-t biciklizik 10km/h-val, majd 20-x km-t sétál 4km/h-val.	(x/10)+((20-x)/4)
 	Jancsi x km-t gyalolog, majd Juli után megy bicklivel 12km/h- val.	(x/5)+((20-x)/12)
@@ -42,9 +48,22 @@
 	C = 2
 	Tehát a c értéke 2.
 
+6. feladat:
+    Tegyük fel, hogy egy ember áll egy körben.
+    Ahhoz, hogy az ember körül lévő többi ember távolsága egymástól több legyen, mint a közeépponttól, több ,mint 60°
+    szöget kell bezárnia a lövéseinek, ennél kevesebbnél rövidebb lesz a táv két a csúcspont között,
+    mint a középpontjától.
+
+
 7. feladat:
 	Mivel össz. 30 golyó van és 21 húzás után húznánk biztosan pirosat, ezért pontosan a 21. lenne piros, azaz
 	20db nem piros, tehát 30-20 = 10db piros golyó van a dobozban.
+
+8. feladat:
+    Egy négyzet területe 1cm^2
+    A kettő átló összesen 85cm^2 + 1cm^2, mert a két átló metszéspontjában lévő négyzetet 2x vesszük.
+    Ami 86cm^2 összesen, tehát mindkét átló 43cm^2.
+    Amiből következik, hogy a nagy négyzet területe 1849cm^2.
 
 9. feladat:
 	n := vendégek
