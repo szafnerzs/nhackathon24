@@ -1,24 +1,25 @@
 def read_matrices(lines):
-    matrices = {}
-    index = 2  # skips "matrices"
+    matrices = {}  # holds matrices data
+    index = 2  # starts after the 'matrices' line
+
     while index < len(lines):
         line = lines[index].strip()
 
         if line == 'operations':
             break
-        # gives matrix ID from the current line
+        # takes out matrix ID from the current line
         matrix_id = line
         index += 1
         matrix = []
-
+        # Read matrix elements until encountering a blank line or the end of the file
         while index < len(lines) and lines[index].strip():
-            # split the line into integers and store them as a row in the matrix
+            # Split the line into integers and store them as a row in the matrix
             matrix.append(list(map(int, lines[index].strip().split())))
             index += 1
-        # store the matrix data in the dictionary using its ID as Dict. Key
+        # Store the matrix data in the dict using its ID
         matrices[matrix_id] = matrix
-        index += 1  # skip blank line
-    # return the dictionary of the matrices and the index where the function starts
+        index += 1  # Skip blank line
+    # Return the dictionary of matrices and the index where the operations start
     return matrices, index + 1
 
 def read_operations(lines, start_index):
@@ -26,62 +27,68 @@ def read_operations(lines, start_index):
     return [line.strip() for line in lines[start_index:] if line.strip()]
 
 def to_postfix(expression, operator):
-    # convert infix expression to postfix
+    # convert infix expression to postfix using the Shunting-yard algorithm
     postfix_expr = []
-    storage = []
-    # loop through each character in the expression
+    stack = []
+    # Loop through each character in the expression
     for char in expression.replace(' ', ''):
-        # check if the character is an operator
+        # Check if the character is an operator
         if char in operator:
-
-            # pop operators with higher or equal precedence from storage
-            while storage and storage[-1] != '(' and operator[char] <= operator[storage[-1]]:
-                postfix_expr.append(storage.pop())
-            storage.append(char)
-    else:
-        # append operands directly to the postfix expression
-        postfix_expr.append(char)
-    # append remaining operators from the storage to the postfix expression
-    postfix_expr.extend(reversed(storage))
+            if char == '(':
+                stack.append(char)
+            elif char == ')':
+                # Pop operators from stack until '(' is encountered
+                while stack and stack[-1] != '(':
+                    postfix_expr.append(stack.pop())
+                stack.pop()  # Discard the '('
+            else:
+                # Pop operators with higher or equal precedence from the stack
+                while stack and stack[-1] != '(' and operator[char] <= operator[stack[-1]]:
+                    postfix_expr.append(stack.pop())
+                stack.append(char)
+        else:
+            # Append operands directly to the postfix expression
+            postfix_expr.append(char)
+    # Append remaining operators from the stack to the postfix expression
+    postfix_expr.extend(reversed(stack))
     return postfix_expr
 
 def compute_expression(expression, matrices, operator):
-    # evaluates the postfix expression using matrices
-    storage = []
-    # loopss through each token in the expression
+    # Evaluate the postfix expression using matrices
+    stack = []
+    # Loop through each token in the expression
     for char in expression:
         if char in operator:
-            # pops two matrices from storage and do the operations
-            b = storage.pop()
-            a = storage.pop()
+            # Pop two matrices from stack and perform the operation
+            b = stack.pop()
+            a = stack.pop()
             if char == '+':
-                # add matrices element-wise
+                # Add matrices element-wise
                 result = [[a[i][n] + b[i][n] for n in range(len(a[0]))] for i in range(len(a))]
             elif char == '*':
-                # matrix multiplication
+                # Matrix multiplication
                 result = [[sum(a[i][k] * b[k][n] for k in range(len(a[0]))) for n in range(len(b[0]))] for i in range(len(a))]
-            storage.append(result)
+            stack.append(result)
         else:
-            # push matrix onto the storage
-            storage.append(matrices[char])
-    return storage.pop()
+            # Push matrix onto the stack
+            stack.append(matrices[char])
+    return stack.pop()
 
-def format_matrix(matrix):
-    # format matrix as a string
+def format_matrix(matrix):  # format matrix as a string
     return '\n'.join([' '.join(map(str, row)) for row in matrix])
 
-# open the input file
-with open('./input.txt', 'r') as file:
+with open('./input.txt', 'r') as file:  # open the input file
     lines = file.readlines()
 
-# read matrices and operations from the input_file
+# Read matrices and operations from input
 matrix_data, operation_start_index = read_matrices(lines)
 operation_list = read_operations(lines, operation_start_index)
-# gives back the operations needed
+# Define operators needed
 operator = {'+': 1, '*': 2}
 
-# loop through each operation and compute the results
+# Loops through each operation and compute the results
 for operation in operation_list:
+    # Convert infix op. to postfix
     postfix_expr = to_postfix(operation, operator)
     result_matrix = compute_expression(postfix_expr, matrix_data, operator)
     formatted_output = format_matrix(result_matrix)
