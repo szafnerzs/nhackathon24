@@ -20,6 +20,5 @@ for item in item_list:
 	else:
 		results[item] = ("NO", -1)
 
-print(results)
 for palindrome_result, unique_count in results.values():
 	print(f"{palindrome_result}, {unique_count}")

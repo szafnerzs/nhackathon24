@@ -1,0 +1,58 @@
+1. feladat:
+	A vonat hossza = l
+	A vonat sebessége = v
+	Az alagút hossza = 300m
+	(Áthaladási) idő = 20s
+
+	v=s/t -ből tudjuk, hogy	20*v = 300m + l
+	Egy ponton(lámpán) 5s alatt megy át, amely egyezik a vonat hosszával is,
+	tehát	5*v = l
+
+	Visszahelyetesítve,	20v = 300+5v 	/-5v / 15
+			v = 20 m/s
+	Amiből 5*20= l
+	l = 100m
+
+	Válasz: A vonat hossza 100 méter.
+
+3. feladat:
+	Juli x km-t biciklizik 10km/h-val, majd 20-x km-t sétál 4km/h-val.	(x/10)+((20-x)/4)
+	Jancsi x km-t gyalolog, majd Juli után megy bicklivel 12km/h- val.	(x/5)+((20-x)/12)
+	A két egyenlet egyenlőnek kell lennie, hogy egyszerre érjenek oda, tehát
+	(x/10)+((20-x)/4)  = (x/5)+((20-x)/12)
+	Az egyenletet megoldva  x = 12,5
+	Tehát 12,5km-t kell Julinak bicikliznie.
+
+4. feladat:
+	A kör egyenlete r=5 esetén, x^2+y^2=25
+	Ebből y^2 = 25 - x^2, és ahol y^2, négyzetszámra jön ki ott rácspontra fog esni.
+	Ahol x értékei -5 és 5 között kell lenniük.
+
+	A kör egyenlete ebben az esetben, csak (+-)3^2+(+-)4^2 = 25 esetben fog egész
+	számra kijönni, tehát a megoldások a
+	(0,5) (-5,0) (3,4) (-3,4) (-4,3) (-3,-4)
+	(5,0) (0,-5) (4,3) (4,-3) (3,-4) (-4,-3)
+	, azaz 12 db megoldás lesz.
+
+5. feladat:
+	koord-geo terület képlet -> 	T = 1/2*|xˇ1*(y˘2-yˇ3)+xˇ2*(y˘3-yˇ1)+xˇ3*(y˘1-yˇ2)|
+	Behelyetesítve: 		T = 1/2*|0*(0-6)+3*(6-4)+c(4-0)|
+	Összevonva:			|6+4c| = 14
+	Amely megoldva c-re:
+	C = 2
+	Tehát a c értéke 2.
+
+7. feladat:
+	Mivel össz. 30 golyó van és 21 húzás után húznánk biztosan pirosat, ezért pontosan a 21. lenne piros, azaz
+	20db nem piros, tehát 30-20 = 10db piros golyó van a dobozban.
+
+9. feladat:
+	n := vendégek
+	Mindenki köszönt mindenkinek, KIVÉTEL magának, ezért az össz. vendégek száma:
+	n(n-1)  = 198-308 => n^2-n = 506 => n^2-n-506 = 0
+	Amiből nˇ1 = 23 ; nˇ2 = -22 (nem lehet negatív), tehát az össz. vendégszám 23.
+
+	Tudjuk, hogy mindenki n-1 embernek köszön, azaz 22-nek ->
+	A magyarok szám 308 / 22 = 14 magyar vett részt a találkozón.
+	Az angolok száma 198 / 22 = 9 angol vett részt a találkozón.
+
