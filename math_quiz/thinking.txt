@@ -73,5 +73,5 @@
 
 	Tudjuk, hogy mindenki n-1 embernek köszön, azaz 22-nek ->
 	A magyarok szám 308 / 22 = 14 magyar vett részt a találkozón.
-	Az angolok száma 198 / 22 = 9 angol vett részt a találkozón.
+	Az angolok száma 198 / 22 = 9 angol vett részt a találkozón, és ez volt a kérdés.
 
